@@ -131,19 +131,7 @@ export class WeatherRadarCard extends LitElement implements LovelaceCard {
             : '492px'
           : '492px'
       };"></div>
-            <div id="div-progress-bar" style="height: 8px; background-color: white;">
-              <div id="progress-bar" style="height:8px;width:0; background-color: #ccf2ff;"></div>
-            </div>
-            <div id="bottom-container" class="light-links" style="height: 32px; background-color: white;">
-              <div id="timestampid" class="text-container" style="width: 120px; height: 32px; float:left; position: absolute;">
-                <p id="timestamp"></p>
-              </div>
-              <div id="attribution" class="text-container-small" style="height: 32px; float:right;">
-                <span class="Map__Attribution-LjffR DKiFh" id="attribution"
-                  ></span
-                >
-              </div>
-            </div>
+          
             <script>
               const maxZoom = 10;
               const minZoom = 3;
@@ -273,8 +261,7 @@ export class WeatherRadarCard extends LitElement implements LovelaceCard {
               var d = new Date();
               d.setTime(Math.trunc((d.valueOf() - frameLag) / framePeriod) * framePeriod - (frameCount - 1) * framePeriod);
 
-              document.getElementById("progress-bar").style.width = barSize+"px";
-              document.getElementById("attribution").innerHTML = attribution;
+            
 
               var t2actions = [];
 
@@ -366,13 +353,7 @@ export class WeatherRadarCard extends LitElement implements LovelaceCard {
                 }
               }
 
-              if ((map_style === "dark") || (map_style == "satellite")) {
-                this.document.getElementById("div-progress-bar").style.background = "#1C1C1C";
-                this.document.getElementById("progress-bar").style.background = "steelblue";
-                this.document.getElementById("bottom-container").style.background = "#1C1C1C";
-                this.document.getElementById("bottom-container").style.color = "#DDDDDD";
-                this.document.getElementById("bottom-container").className = "dark-links";
-              }
+          
 
               L.tileLayer(
                 basemap_url,
