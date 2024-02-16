@@ -391,7 +391,7 @@ export class WeatherRadarCard extends LitElement implements LovelaceCard {
               radarImage[0].addTo(radarMap);
 
               radarImage[idx].setOpacity(radarOpacity);
-              document.getElementById('timestamp').innerHTML = radarTime[idx];
+             
               d.setTime(d.valueOf() + (frameCount - 1) * framePeriod);
 
               townLayer = L.tileLayer(
@@ -539,8 +539,7 @@ export class WeatherRadarCard extends LitElement implements LovelaceCard {
           if (idx < 0) {
             idx = frameCount-1;
           }
-          document.getElementById("progress-bar").style.width = (idx+1)*barSize+"px";
-          document.getElementById('timestamp').innerHTML = radarTime[idx];
+          
           radarImage[idx].setOpacity(radarOpacity);
         }
 
@@ -557,13 +556,7 @@ export class WeatherRadarCard extends LitElement implements LovelaceCard {
           if (idx == frameCount + 1) {
             idx = 0;
           }
-          if (idx != frameCount + 1) {
-            document.getElementById("progress-bar").style.width = (idx+1)*barSize+"px";
-          }
-          if (idx < frameCount) {
-            document.getElementById('timestamp').innerHTML = radarTime[idx];
-            radarImage[idx].setOpacity(radarOpacity);
-          }
+         
         }
 
         function resizeWindow() {
@@ -580,9 +573,7 @@ export class WeatherRadarCard extends LitElement implements LovelaceCard {
             : 492
           : 492
       }
-          this.document.getElementById("div-progress-bar").width = this.frameElement.offsetWidth;
-          this.document.getElementById("bottom-container").width = this.frameElement.offsetWidth;
-          barSize = this.frameElement.offsetWidth/frameCount;
+         
         }
         </script>
             </span>
